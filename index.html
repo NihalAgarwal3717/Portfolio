@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nihal Agarwal | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: #f5f1e8;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .gold {
+            color: #d5aa62;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 5%;
+
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bbb;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d5aa62;
+        }
+
+        .resume {
+            border: 1px solid #d5aa62;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #d5aa62;
+            transition: 0.3s;
+        }
+
+        .resume:hover {
+            background: #d5aa62;
+            color: #111;
+        }
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(90deg,
+                    rgba(0, 0, 0, .9),
+                    rgba(0, 0, 0, .45)),
+                url("hero-bg.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 620px;
+            animation: appear 1.2s ease;
+        }
+
+        .small-text {
+            color: #d5aa62;
+            letter-spacing: 4px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(65px, 10vw, 110px);
+            line-height: .95;
+            margin: 15px 0;
+        }
+
+        .hero h2 {
+            color: #d5aa62;
+            font-family: Georgia, serif;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #ccc;
+            max-width: 520px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 25px;
+            transition: .3s;
+        }
+
+        .primary {
+            background: #d5aa62;
+            color: #111;
+        }
+
+        .outline {
+            border: 1px solid #aaa;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .primary:hover {
+            box-shadow: 0 10px 30px rgba(213, 170, 98, .3);
+        }
+        section {
+            padding: 100px 0;
+        }
+
+        .section-number {
+            color: #d5aa62;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.08);
+        }
+        .skills {
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 25px;
+            text-align: center;
+
+            border: 1px solid #333;
+            border-radius: 10px;
+            background: #111;
+
+            transition: .3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #d5aa62;
+        }
+
+        .skill h3 {
+            margin-bottom: 5px;
+        }
+
+        .skill p {
+            color: #777;
+            font-size: 13px;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+
+            transition: .4s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            border-color: #d5aa62;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+        }
+
+        .project-image {
+            height: 200px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(135deg,
+                    #302719,
+                    #101010);
+
+            color: #d5aa62;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project h3 {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            border: 1px solid #444;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .project a {
+            color: #d5aa62;
+            font-size: 13px;
+        }
+        .journey {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .timeline {
+            border-left: 1px solid #444;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            background: #d5aa62;
+            border-radius: 50%;
+
+            left: -31px;
+            top: 7px;
+
+            animation: pulse 2s infinite;
+        }
+
+        .date {
+            color: #d5aa62;
+            font-size: 12px;
+        }
+
+        .timeline-item h3 {
+            margin: 5px 0;
+        }
+
+        .timeline-item p {
+            color: #888;
+        }
+        .contact {
+            border-top: 1px solid #222;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-text p {
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            color: #bbb;
+        }
+
+        .contact-info div {
+            margin-bottom: 12px;
+        }
+
+        form {
+            background: #111;
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+
+            background: #0b0b0b;
+            color: white;
+
+            border: 1px solid #333;
+            border-radius: 7px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #d5aa62;
+            color: #111;
+
+            font-weight: bold;
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(213, 170, 98, .25);
+        }
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #222;
+            color: #777;
+            text-align: center;
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(213, 170, 98, .5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(213, 170, 98, 0);
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                background-position: 65% center;
+            }
+
+            .about,
+            .journey,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 70px;
+            }
+
+            .section-title {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <a href="#home" class="logo">
+            Nihal
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#journey">Journey</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+        <a href="#" class="resume">
+            Resume
+        </a>
+
+    </nav>
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="small-text">
+                    HELLO, I'M
+                </div>
+
+                <h1>
+                    Nihal
+                </h1>
+
+                <h2>
+                    CS Student · Builder · Competitive Programmer
+                </h2>
+
+                <p>
+                    I love building things with technology.
+                    Currently exploring C++, web development,
+                    AI/ML and competitive programming while
+                    turning ideas into real projects.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projects" class="btn primary">
+                        View Projects →
+                    </a>
+
+                    <a href="#contact" class="btn outline">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-number">
+                01. ABOUT ME
+            </div>
+
+            <div class="about">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Who I <span class="gold">Am</span>
+                    </h2>
+
+                    <p>
+                        I'm Nihal, a Computer Science student
+                        at Scaler School of Technology.
+                    </p>
+
+                    <p>
+                        I enjoy learning by building projects,
+                        solving programming problems and
+                        participating in competitions.
+                    </p>
+
+                    <p>
+                        Outside coding, I enjoy cricket,
+                        table tennis, archery, cooking and
+                        exploring new places.
+                    </p>
+
+                </div>
+
+
+                <div class="about-image">
+
+                    <img src="hero-bg.png" alt="Nihal portfolio background">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="skills" id="skills">
+
+        <div class="container">
+
+            <div class="section-number">
+                02. SKILLS
+            </div>
+
+            <h2 class="section-title">
+                My <span class="gold">Skills</span>
+            </h2>
+
+            <div class="skill-grid">
+
+                <div class="skill">
+                    <h3>C++</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill">
+                    <h3>Python</h3>
+                    <p>Development</p>
+                </div>
+
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <p>Web Structure</p>
+                </div>
+
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <p>Web Design</p>
+                </div>
+
+                <div class="skill">
+                    <h3>Git</h3>
+                    <p>Version Control</p>
+                </div>
+
+                <div class="skill">
+                    <h3>Flask</h3>
+                    <p>Backend</p>
+                </div>
+
+                <div class="skill">
+                    <h3>SQLite</h3>
+                    <p>Database</p>
+                </div>
+
+                <div class="skill">
+                    <h3>Problem Solving</h3>
+                    <p>Competitive Programming</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-number">
+                03. PROJECTS & ACHIEVEMENTS
+            </div>
+
+            <h2 class="section-title">
+                Things I've <span class="gold">Built</span>
+            </h2>
+
+            <div class="projects">
+                <div class="project">
+
+                    <div class="project-image">
+                        NEXTCAMP
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            NextCamp
+                        </h3>
+
+                        <p>
+                            A campus management platform that
+                            helps students report problems and
+                            allows departments to solve them.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                Python
+                            </span>
+
+                            <span class="tag">
+                                Flask
+                            </span>
+
+                            <span class="tag">
+                                SQLite
+                            </span>
+
+                            <span class="tag">
+                                HTML/CSS
+                            </span>
+
+                        </div>
+
+                        <a href="https://next-camp-7so3.vercel.app/" target="_blank">
+                            Live Demo →
+                        </a>
+
+                    </div>
+
+                </div>
+                <div class="project">
+
+                    <div class="project-image" style="
+                        background:
+                        linear-gradient(
+                            135deg,
+                            #4b3820,
+                            #111
+                        );
+                        ">
+                        #1 CP
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Competitive Programming
+                        </h3>
+
+                        <p>
+                            Participated in an ICPC-style team
+                            competitive programming contest and
+                            secured 1st position with my team.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                C++
+                            </span>
+
+                            <span class="tag">
+                                Algorithms
+                            </span>
+
+                            <span class="tag">
+                                Problem Solving
+                            </span>
+
+                            <span class="tag">
+                                Teamwork
+                            </span>
+
+                        </div>
+
+                        <a href="#journey">
+                            View Achievement →
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="project">
+
+                    <div class="project-image" style="
+                        background:
+                        linear-gradient(
+                            135deg,
+                            #182b3a,
+                            #111
+                        );
+                        ">
+                        PORTFOLIO
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Personal Portfolio
+                        </h3>
+
+                        <p>
+                            A responsive personal website created
+                            using HTML and CSS with animations,
+                            responsive design and a cinematic theme.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                HTML
+                            </span>
+
+                            <span class="tag">
+                                CSS
+                            </span>
+
+                            <span class="tag">
+                                Animation
+                            </span>
+
+                        </div>
+
+                        <a href="#home">
+                            View Website →
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="project">
+
+                    <div class="project-image" style="
+                        background:
+                        linear-gradient(
+                            135deg,
+                            #202020,
+                            #111
+                        );
+                        ">
+                        C++ / CP
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Competitive Programming Journey
+                        </h3>
+
+                        <p>
+                            Currently improving my C++,
+                            algorithms and problem-solving
+                            skills through regular contests
+                            and practice.
+                        </p>
+
+                        <div class="tags">
+
+                            <span class="tag">
+                                C++
+                            </span>
+
+                            <span class="tag">
+                                Algorithms
+                            </span>
+
+                            <span class="tag">
+                                Codeforces
+                            </span>
+
+                        </div>
+
+                        <a href="#skills">
+                            Explore Skills →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="journey">
+
+        <div class="container">
+
+            <div class="section-number">
+                04. MY JOURNEY
+            </div>
+
+            <div class="journey">
+
+                <div>
+
+                    <h2 class="section-title">
+                        My <span class="gold">Journey</span>
+                    </h2>
+
+                    <p style="color:#999;">
+                        Learning, building, competing and
+                        constantly trying something new.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <div class="date">
+                            SEPTEMBER 2026
+                        </div>
+
+                        <h3>
+                            &#127942; Competitive Programming Contest
+                        </h3>
+
+                        <p>
+                            Participated in an ICPC-style team
+                            programming contest and secured
+                            <strong style="color:#d5aa62;">
+                                1st position
+                            </strong>
+                            with my team.
+                        </p>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <div class="date">
+                            AUGUST 2026
+                        </div>
+
+                        <h3>
+                            Gradient Rush Hackathon
+                        </h3>
+
+                        <p>
+                            Built NextCamp during an overnight
+                            AI/ML hackathon with my team.
+                        </p>
+
+                    </div>
+                    <div class="timeline-item">
+
+                        <div class="date">
+                            2026 — PRESENT
+                        </div>
+
+                        <h3>
+                            Scaler School of Technology
+                        </h3>
+
+                        <p>
+                            Computer Science student learning
+                            programming, web development,
+                            problem solving and AI/ML.
+                        </p>
+
+                    </div>
+
+                    <div class="timeline-item">
+
+                        <div class="date">
+                            SCHOOL YEARS
+                        </div>
+
+                        <h3>
+                            The Assam Valley School
+                        </h3>
+
+                        <p>
+                            Academics, sports, archery,
+                            debates and various activities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-number">
+                05. CONTACT
+            </div>
+
+            <div class="contact-box">
+
+                <div class="contact-text">
+
+                    <h2 class="section-title">
+                        Let's <span class="gold">Connect</span>
+                    </h2>
+
+                    <p>
+                        Have a project idea, collaboration
+                        opportunity or just want to say hello?
+                    </p>
+
+                    <div class="contact-info">
+
+                        <div>
+                             &#9993;
+                            <a href="mailto:agarwalnihal@gmail.com">
+                                agarwalnihal@gmail.com
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="https://github.com/NihalAgarwal3717" target="_blank">
+                                GitHub
+                            </a>
+                            
+                        </div>
+
+                        <div>
+                            <a href="https://www.linkedin.com/in/yourusername/" target="_blank">
+                                LinkedIn
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <form>
+
+                    <input type="text" placeholder="Your Name" required>
+
+                    <input type="email" placeholder="Your Email" required>
+
+                    <textarea placeholder="Your Message" required></textarea>
+
+                    <button type="submit">
+                        Send Message →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Nihal Agarwal |
+                Built with HTML & CSS
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
